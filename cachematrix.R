@@ -25,12 +25,13 @@ cacheSolve <- function(x, ...) {
     if(!is.null(inv)){
         # We have a cached copy of the inverse, return it
         message("getting cached inverse")
+        return(inv)
     } else {
         # We do not have a cached inverse.         
         # calculate, cache and return
         matrix <- x$get()        
         inv <- solve(matrix)
         x$setInverse(inv)
+        return(inv)
     }
-    inv
 }
